@@ -1,0 +1,1 @@
+print('minky likes to moo!')
