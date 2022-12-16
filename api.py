@@ -324,7 +324,7 @@ class RestClient(BaseClient):
 
         Cost of carry is set to zero
 
-        Risk free rate is weighted interpolation using Fed Reserver daily Treasury Contant Maturity Rates
+        Risk free rate is weighted interpolation using FED Reserve daily Treasury Constant Maturity Rates
         - https://support.carta.com/s/article/black-scholes
 
         :param contract: Options contract e.g. 'BRENT', 'WTI', 'HH' etc
