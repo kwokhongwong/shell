@@ -107,7 +107,7 @@ class LocalClient(BaseClient):
             option_type=option_type, x=x, fs=fs, t=t, b=b, r=r, v=v
         )
 
-        return pricer.pv()
+        return pricer.price()
 
     @staticmethod
     def option_greeks(
@@ -152,7 +152,7 @@ class LocalClient(BaseClient):
         )
         lot_factor = pricer.lot_factor() if lot_price else 1.
 
-        return pricer.pv() * lot_factor
+        return pricer.price() * lot_factor
 
     @staticmethod
     def commodity_option_greeks(

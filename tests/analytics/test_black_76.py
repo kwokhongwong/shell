@@ -7,13 +7,13 @@ def test_commodity_option_brent():
     pricer_call = Black76CommodityOptionPricer(
         contract='BRENT', exchange_code='ICE', month='JAN', year='2025', option_type='C'
     )
-    pv_call = pricer_call.pv()
+    pv_call = pricer_call.price()
     assert isinstance(pv_call, float)
 
     pricer_put = Black76CommodityOptionPricer(
         contract='BRENT', exchange_code='ICE', month='JAN', year='2025', option_type='P'
     )
-    pv_put = pricer_put.pv()
+    pv_put = pricer_put.price()
     assert isinstance(pv_put, float)
 
     with pytest.raises(BlackScholesCalculationError):
@@ -30,6 +30,6 @@ def test_option_benchmark_price():
     pricer = BlackScholesOptionPricer(
         option_type='C', x=19, fs=19, t=0.75, b=0, r=0.1, v=0.28
     )
-    pv = pricer.pv()
+    pv = pricer.price()
 
     assert round(pv, 9) == round(1.70105072524, 9)

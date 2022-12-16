@@ -77,16 +77,16 @@ class BlackScholesOptionPricer:
                 f"Invalid Input Implied Volatility (volatility = {v}). "
                 f"Acceptable range for inputs is {BlackScholesLimits.MIN_V} to {BlackScholesLimits.MAX_V}")
 
-    def pv(self) -> float:
+    def price(self) -> float:
 
         if self.option_type.lower() == 'c':
-            pv = self.fs * math.exp((self.b - self.r) * self.t) * norm.cdf(self.d1)\
+            price = self.fs * math.exp((self.b - self.r) * self.t) * norm.cdf(self.d1)\
                  - self.x * math.exp(-self.r * self.t) * norm.cdf(self.d2)
         elif self.option_type.lower() == 'p':
-            pv = self.x * math.exp(-self.r * self.t) * norm.cdf(-self.d2) \
+            price = self.x * math.exp(-self.r * self.t) * norm.cdf(-self.d2) \
                  - (self.fs * math.exp((self.b - self.r) * self.t) * norm.cdf(-self.d1))
 
-        return pv
+        return price
 
     @lru_cache
     def greeks(self) -> dict:
