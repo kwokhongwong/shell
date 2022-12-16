@@ -76,12 +76,10 @@ class BaseClient(ABC):
 class LocalClient(BaseClient):
 
     @staticmethod
-    @abstractmethod
     def env_variables() -> dict:
         return env.env_variables()
 
     @staticmethod
-    @abstractmethod
     def tweak_env(
             key: str, value: object
     ) -> None:
@@ -92,7 +90,6 @@ class LocalClient(BaseClient):
         tweak_env(key=key, value=value)
 
     @staticmethod
-    @abstractmethod
     def option_price(
             option_type: str, x: float, fs: float, t: float, b: float, r: float, v: float
     ) -> float:
@@ -113,7 +110,6 @@ class LocalClient(BaseClient):
         return pricer.pv()
 
     @staticmethod
-    @abstractmethod
     def option_greeks(
             option_type: str, x: float, fs: float, t: float, b: float, r: float, v: float
     ) -> float:
@@ -213,7 +209,6 @@ class RestClient(BaseClient):
     """
 
     @staticmethod
-    @abstractmethod
     def env_variables() -> dict:
         """
         :return: dict of system wide environment variables
@@ -225,7 +220,6 @@ class RestClient(BaseClient):
         return json.loads(response.content)['ENV_VARIABLES']
 
     @staticmethod
-    @abstractmethod
     def tweak_env(
             key: str, value: object
     ) -> None:
