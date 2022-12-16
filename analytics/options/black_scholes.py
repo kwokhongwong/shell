@@ -198,7 +198,7 @@ class Black76CommodityOptionPricer(BlackScholesOptionPricer):
             expiry_date=self.expiry_date
         )
 
-    def lot_factor(self):
+    def lot_size(self):
         from analytics.constants import CONTRACT_EXCHANGE_MAP
 
         __, __, lot_size = CONTRACT_EXCHANGE_MAP[(self.contract, self.exchange_code)]

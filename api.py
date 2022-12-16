@@ -150,7 +150,7 @@ class LocalClient(BaseClient):
             option_type=option_type,
             strike=strike
         )
-        lot_factor = pricer.lot_factor() if lot_price else 1.
+        lot_factor = pricer.lot_size() if lot_price else 1.
 
         return pricer.price() * lot_factor
 
